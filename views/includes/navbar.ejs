@@ -1,0 +1,76 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand"
+      ><i class="fa-solid fa-compass"></i
+      ><b style="color: #fe424d">LuxeStay</b></a
+    >
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link log" href="/listings"
+          ><i class="fa-solid fa-house"></i> Homes</a
+        >
+      </div>
+      <% if(currUser) { %>
+      <div class="index-container col-8">
+        <div class="navbar-nav offset-4 ml-8 mb-3 pt-3">
+          <form class="d-flex" role="search" action="/listings" method="GET">
+            <!-- Category Dropdown -->
+            <select
+              class="form-control me-2 search-inp"
+              style="max-width: 130px"
+              aria-label="Default select example"
+              name="category"
+            >
+              <option value="">All Category</option>
+              <option value="trending">Trending</option>
+              <option value="room">Rooms</option>
+              <option value="iconic-cities">Iconic-cities</option>
+              <option value="mountain">Mountains</option>
+              <option value="beach">Beach</option>
+              <option value="castle">Castles</option>
+              <option value="pool">Pools</option>
+              <option value="camping">Camping</option>
+              <option value="farm">Farms</option>
+              <option value="arctic">Arctics</option>
+              <option value="dome">Domes</option>
+              <option value="boat">Boats</option>
+            </select>
+
+            <!-- Search Input -->
+            <input
+              class="form-control me-2 search-inp"
+              type="search"
+              name="search"
+              placeholder="Search listings"
+            />
+
+            <button class="btn btn-search" type="submit" style="color: #fe424d">
+              <i class="fa-solid fa-magnifying-glass"></i> Search
+            </button>
+          </form>
+        </div>
+      </div>
+      <% } %>
+      <div class="navbar-nav ms-auto">
+        <a class="nav-link" href="/listings/new">Become a host</a>
+        <% if(!currUser) { %>
+        <a class="nav-link" href="/signup"><b>Sign up</b></a>
+        <a class="nav-link" href="/login"><b>login</b></a>
+        <% } %> <% if(currUser) { %>
+        <a class="nav-link" href="/logout"><b>Log out</b><i class="fa-solid fa-right-from-bracket"></i></a>
+        <% } %>
+      </div>
+    </div>
+  </div>
+</nav>

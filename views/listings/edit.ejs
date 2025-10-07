@@ -1,0 +1,89 @@
+<% layout("/layouts/Boilerplate") %>
+<div class="row">
+  <div class="col-8 offset-2">
+    <form action="/listings/<%=showID._id%>?_method=PUT" method="POST" class="needs-validation" novalidate enctype="multipart/form-data">
+      <div class="mb-3">
+        <label for="title" class="form-label"></label>
+        <input
+          type="text"
+          name="Listing[title]"
+          value="<%=showID.title%>"
+          class="form-control"
+          required
+        />
+        <div class="valid-feedback">Title looks good!</div>
+      </div>
+      <div class="mb-3">
+        <label for="description" class="form-label"></label>
+        <textarea name="Listing[description]" class="form-control" required><%= showID.description %></textarea>
+        <div class="invalid-feedback">Description required!</div>
+      </div>
+      Original listing image
+      <div class="mb-3">
+        <img src= "<%= originalimage %>">
+      </div>
+      <div class="mb-3">
+        <label for="image" class="form-label"></label>
+        <input
+          type="file"
+          name="Listing[image]"
+          class="form-control"
+        />
+      </div>
+      <div class="row">
+        <div class="mb-3 col-md-4">
+          <label for="price" class="form-label"></label>
+          <input
+            type="number"
+            name="Listing[price]"
+            value="<%=showID.price%>"
+            class="form-control"
+            required
+          />
+          <div class="invalid-feedback">Invalid price!</div>
+        </div>
+        <div class="mb-3 col-md-8">
+          <label for="location" class="form-label"></label>
+          <input
+            type="text"
+            name="Listing[location]"
+            value="<%=showID.location%>"
+            class="form-control"
+            required
+          />
+          <div class="invalid-feedback">Location not considered!</div>
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="country" class="form-label"></label>
+        <input
+          type="text"
+          name="Listing[country]"
+          value="<%=showID.country%>"
+          class="form-control"
+          required
+        />
+        <div class="invalid-feedback">Looking for valid country!</div>
+      </div>
+      <div class="mb-3">
+          <label for="category">Type of listing: </label>
+          <select name="Listing[category]" id="category">
+            <option value="trending">Trending</option>
+            <option value="room">Room</option>
+            <option value="castle">Castle</option>
+            <option value="farm">Farm</option>
+            <option value="pool">Pool</option>
+            <option value="boat">Boat</option>
+            <option value="beach">Beach</option>
+            <option value="dome">Dome</option>
+            <option value="arctic">Arctic</option>
+            <option value="camping">Camping</option>
+            <option value="iconic-cities">Iconic cities</option>
+            <option value="mountain">Mountains</option>
+          </select>
+        </div>
+      <button class="btn btn-dark add-btn">Submit</button>
+      <br/><br/>
+    </form>
+  </div>
+</div>
